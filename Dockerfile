@@ -12,8 +12,7 @@ LABEL org.metadata.build-date=$BUILD_DATE \
 	   org.metadata.url="https://github.com/energyvault462/docker-ruby-2.3" \
 	   org.metadata.vcs-url="https://github.com/energyvault462/docker-ruby-2.3"
 
-ARG FORCE_NEW_BUILD=unknown
-RUN FORCE_NEW_BUILD=${GIT_PULL_TIME}  apt-get update && apt-get install -y curl patch gawk g++ gcc make libc6-dev patch libreadline6-dev zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 autoconf libgdbm-dev libncurses5-dev automake libtool bison pkg-config libffi-dev nano wget
+RUN apt-get update && apt-get install -y curl patch gawk g++ gcc make libc6-dev patch libreadline6-dev zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 autoconf libgdbm-dev libncurses5-dev automake libtool bison pkg-config libffi-dev nano wget
 
 RUN useradd -u 2002 -ms /bin/zsh mce
 
@@ -29,5 +28,3 @@ RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3 && \
 
 
 WORKDIR /
-
-CMD ["/bin/bash"]
