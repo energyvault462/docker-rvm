@@ -14,8 +14,6 @@ LABEL org.metadata.build-date=$BUILD_DATE \
 
 RUN apt-get update && apt-get install -y curl patch gawk g++ gcc make libc6-dev patch libreadline6-dev zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 autoconf libgdbm-dev libncurses5-dev automake libtool bison pkg-config libffi-dev nano wget
 
-RUN useradd -u 2002 -ms /bin/zsh mce
-
 # Install RVM
 RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3 && \
     wget https://github.com/rvm/rvm/archive/1.27.0.tar.gz && \
